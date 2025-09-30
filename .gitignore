@@ -1,0 +1,49 @@
+# Node modules (npm packages)
+node_modules/
+
+# Compiled Tailwind CSS output
+/public/css/main.css
+/public/css/main.css.map
+
+# Optional: If you're using source CSS input
+# but want to ignore it (unusual, but possible)
+/public/css/tailwind.css
+
+# Environment variables
+.env
+.env.*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
+
+# Build cache
+.cache/
+dist/
+
+# Optional: If you’re using PM2 or other runtime tools
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Optional: Coverage reports (if using Jest or other testing tools)
+coverage/
+
+# Optional: Debug and profiling
+*.prof
+*.swp
+
+# Optional: Ignore compiled views (if you're precompiling templates)
+views_compiled/
