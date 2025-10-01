@@ -9,16 +9,20 @@ const BASE_URL = process.env.BASE_URL; // e.g. https://your-bot.vercel.app
 
 const app = express();
 app.use(express.json());
+console.log("Bot token loaded:", TELEGRAM_TOKEN ? "✅ Yes" : "❌ No");
 
 // Create bot in webhook mode (❌ no polling on Vercel)
 const bot = new TelegramBot(TELEGRAM_TOKEN);
-bot.setWebHook(`${BASE_URL}/bot${TELEGRAM_TOKEN}`);
+// Set webhook to a static path
+bot.setWebHook(`${BASE_URL}/webhook`);
 
-// Webhook endpoint (Telegram sends updates here)
-app.post(`/bot${TELEGRAM_TOKEN}`, (req, res) => {
+// Webhook endpoint
+app.post("/webhook", (req, res) => {
+  console.log("Webhook hit:", req.body); // debug
   bot.processUpdate(req.body);
   res.sendStatus(200);
 });
+
 
 // Message handler
 bot.on("message", async (msg) => {
